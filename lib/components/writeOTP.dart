@@ -16,7 +16,7 @@ class _RecieveOTPState extends State<RecieveOTP> {
     return Scaffold(
       body: Padding(
         padding:
-            const EdgeInsets.only(bottom: 80.0, left: 5, right: 5, top: 10),
+            const EdgeInsets.only(bottom: 80.0, left: 5, right: 5, top: 24),
         child: Column(
           children: [
             Row(

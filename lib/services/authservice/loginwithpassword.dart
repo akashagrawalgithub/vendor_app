@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vendor_app/components/writeOTP.dart';
-import 'package:vendor_app/services/authservice/loginwithpassword.dart';
+import 'package:vendor_app/homepage.dart';
+import 'package:vendor_app/services/authservice/login.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class LoginWithPassword extends StatefulWidget {
+  const LoginWithPassword({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<LoginWithPassword> createState() => _LoginWithPasswordState();
 }
 
-class _LoginPageState extends State<LoginPage> {
-  final _mobilenumeber = TextEditingController();
+class _LoginWithPasswordState extends State<LoginWithPassword> {
+  final _mobilenumber = TextEditingController();
+  final _password = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -74,7 +75,7 @@ class _LoginPageState extends State<LoginPage> {
               height: 25,
             ),
             const Text(
-              "Login to Vendor Panel using Mobile Number",
+              "Login to Vendor Panel using Password",
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 18,
@@ -95,12 +96,12 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 child: TextFormField(
-                  controller: _mobilenumeber,
+                  controller: _mobilenumber,
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
                     hintText: "Enter Mobile Number (Without +91)",
                     border: InputBorder.none,
-                    contentPadding: EdgeInsets.all(10.0),
+                    contentPadding: const EdgeInsets.all(10.0),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.0),
                       borderSide: const BorderSide(
@@ -113,7 +114,39 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             const SizedBox(
-              height: 25,
+              height: 15,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 15.0, right: 15.0),
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10.0),
+                  border: Border.all(
+                    color: Colors.grey,
+                    width: 1.0,
+                  ),
+                ),
+                child: TextFormField(
+                  controller: _password,
+                  keyboardType: TextInputType.text,
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    hintText: "Enter Password",
+                    border: InputBorder.none,
+                    contentPadding: const EdgeInsets.all(10.0),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                      borderSide: const BorderSide(
+                        color: Color.fromARGB(255, 7, 52, 75),
+                        width: 1.0,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 20,
             ),
             Container(
               padding: const EdgeInsets.only(left: 15.0, right: 15.0),
@@ -125,12 +158,12 @@ class _LoginPageState extends State<LoginPage> {
                           250, 84, 87, 1)), // Set the background color to red
                 ),
                 onPressed: () {
-                  Get.to(() => RecieveOTP());
+                  Get.to(() => const HomePage());
                 },
                 child: const Padding(
                   padding: EdgeInsets.only(top: 12.0, bottom: 12.0),
                   child: Text(
-                    "Send OTP",
+                    "Login",
                     style: TextStyle(
                       fontSize: 18,
                     ),
@@ -139,7 +172,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             const SizedBox(
-              height: 15,
+              height: 12,
             ),
             const Text(
               "----------- Or -----------",
@@ -149,14 +182,14 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             const SizedBox(
-              height: 20,
+              height: 15,
             ),
             GestureDetector(
               onTap: () {
-                Get.to(() => const LoginWithPassword());
+                Get.to(() => LoginPage());
               },
               child: const Text(
-                "Login with Password",
+                "Login with OTP",
                 style: TextStyle(
                   fontSize: 18,
                   color: const Color.fromRGBO(252, 156, 103, 1),
@@ -164,7 +197,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             const SizedBox(
-              height: 50,
+              height: 20,
             ),
             const Column(
               children: [

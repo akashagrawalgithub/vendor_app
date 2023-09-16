@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vendor_app/components/writeOTP.dart';
 import 'package:vendor_app/services/authservice/login.dart';
 
 void main() {
@@ -16,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       home: SafeArea(
         child: Scaffold(
-          body: RecieveOTP(),
+          body: LoginPage(),
         ),
       ),
     );
