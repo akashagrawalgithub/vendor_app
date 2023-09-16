@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:vendor_app/homepage.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -8,7 +10,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  TextEditingController _mobileController = TextEditingController();
+  final _mobilenumeber = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,8 +21,8 @@ class _LoginPageState extends State<LoginPage> {
             Container(
               width: double.infinity,
               height: 400,
-              child: Image.network(
-                'https://media.istockphoto.com/id/938742222/photo/cheesy-pepperoni-pizza.jpg?s=612x612&w=0&k=20&c=D1z4xPCs-qQIZyUqRcHrnsJSJy_YbUD9udOrXpilNpI=',
+              child: Image.asset(
+                'images/loginimage.png',
                 fit: BoxFit.cover,
                 errorBuilder: (context, error, stackTrace) {
                   return Text('Image not found');
@@ -82,7 +84,7 @@ class _LoginPageState extends State<LoginPage> {
               height: 25,
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 25.0, right: 25.0),
+              padding: const EdgeInsets.only(left: 15.0, right: 15.0),
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10.0),
@@ -92,7 +94,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 child: TextFormField(
-                  controller: _mobileController,
+                  controller: _mobilenumeber,
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
                     hintText: "Enter Mobile Number (Without +91)",
@@ -113,7 +115,7 @@ class _LoginPageState extends State<LoginPage> {
               height: 25,
             ),
             Container(
-              padding: const EdgeInsets.only(left: 25.0, right: 25.0),
+              padding: const EdgeInsets.only(left: 15.0, right: 15.0),
               width: double.infinity,
               child: ElevatedButton(
                 style: ButtonStyle(
@@ -121,7 +123,9 @@ class _LoginPageState extends State<LoginPage> {
                       const Color.fromRGBO(
                           250, 84, 87, 1)), // Set the background color to red
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Get.to(() => HomePage());
+                },
                 child: Padding(
                   padding: const EdgeInsets.only(top: 12.0, bottom: 12.0),
                   child: Text(

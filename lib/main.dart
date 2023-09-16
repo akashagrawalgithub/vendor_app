@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:vendor_app/components/writeOTP.dart';
 import 'package:vendor_app/services/authservice/login.dart';
 
 void main() {
@@ -7,16 +9,14 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return const GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       home: SafeArea(
         child: Scaffold(
-          body: LoginPage(),
+          body: RecieveOTP(),
         ),
       ),
     );
