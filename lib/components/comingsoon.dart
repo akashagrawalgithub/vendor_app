@@ -1,8 +1,14 @@
 import "package:flutter/material.dart";
 
-class ComingSoon extends StatelessWidget {
-  const ComingSoon({super.key});
+class ComingSoon extends StatefulWidget {
+  final String pagename;
+  const ComingSoon({Key? key, required this.pagename}) : super(key: key);
 
+  @override
+  State<ComingSoon> createState() => _ComingSoonState();
+}
+
+class _ComingSoonState extends State<ComingSoon> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,14 +19,13 @@ class ComingSoon extends StatelessWidget {
           children: [
             Container(
               width: double.infinity,
-              child: Image.network(
-                  "https://media.discordapp.net/attachments/752703729802936390/1115684004633526354/image_processing20210907-24576-l5mbkr.gif"),
+              child: Image.asset("images/comingsoonimage.gif"),
             ),
             const SizedBox(
               height: 15,
             ),
-            const Text(
-              "Coming Soon",
+            Text(
+              "Coming Soon ${widget.pagename}",
               style: TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.w600,
